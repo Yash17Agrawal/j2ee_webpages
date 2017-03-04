@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
+
+
 /**
  *
  * @author code_eagle
@@ -23,32 +27,14 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        Cookie[] cookies = request.getCookies();
-if(cookies !=null){
-for(Cookie cookie : cookies){
-        if(cookie.getName().equals("username"))
-        {
-            System.out.println("hello yash");
-            cookie.setMaxAge(0);
-            response.addCookie(cookie);
-            break;
-        }
-       
-}
-}
+
+        HttpSession session = request.getSession();
+        session.removeAttribute("username");
+        session.invalidate();
 response.sendRedirect("http://localhost:8080/j2ee/");
-       /* try (PrintWriter out = response.getWriter()) {
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>You Are Successfully Logged Out</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<a href=http://localhost:8080/MyfirstCloud-war/Home> Press For going to Home Page" );
-            out.println("</body>");
-            out.println("</html>");
-        }*/
+      
+
+response.sendRedirect("http://localhost:8080/j2ee/");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

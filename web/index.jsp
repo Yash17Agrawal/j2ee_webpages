@@ -1,3 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : Mar 4, 2017, 9:53:38 AM
+    Author     : code_eagle
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +23,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body >
 
 <nav class="navbar navbar-inverse">
 
@@ -40,7 +48,9 @@
 				<ul class="dropdown-menu">
 					<li ><a href="#">Settings</a></li>
 					<li ><a href="#">View History</a></li>
-					<li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.html>Login</a></li>	
+
+					<li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp>Login</a></li>	
+
                                         <li ><a href=http://localhost:8080/j2ee/Login_Signup/Signup.html>Signup</a></li>
 				</ul>
 			</li>

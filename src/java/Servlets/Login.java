@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
+
 /**
  *
  * @author code_eagle
@@ -23,7 +26,9 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
          Mysqldbconnection dbobj=new Mysqldbconnection();
+
            
             String username=request.getParameter("username");
             String password=request.getParameter("password");
@@ -40,16 +45,24 @@ public class Login extends HttpServlet {
             out.println("<body>");
             if(result==1)
             {
-                Cookie loginCookie = new Cookie("username",username);
-			//setting cookie to expiry in 30 mins
-			loginCookie.setMaxAge(30*60);
-			response.addCookie(loginCookie);
+
+                        HttpSession session2 = request.getSession(true);
+                        session2.setAttribute("username", username);
 			response.sendRedirect("http://localhost:8080/j2ee/Login_Signup/AfterLogin.jsp");
-                        //out.println("<h1>Successfully Logged in</h1>");
+                        
             
             }
             else
-                     out.println("<h1>Incorrect credentials</h1>");
+            {
+                // Code for security i.e if any system continuously attempts to log in with incorrect credentials his account gets locked
+                
+                /*
+                HttpSession session = request.getSession(true);
+                session.setAttribute("error", "error");
+		*/	
+                out.println("<h1>Incoorect Credentials</h1>");
+            }
+
             out.println("</body>");
             out.println("</html>");
         }
