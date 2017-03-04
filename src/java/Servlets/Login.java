@@ -1,53 +1,57 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
 
-public class ValidateLogin extends HttpServlet {
+/**
+ *
+ * @author code_eagle
+ */
+public class Login extends HttpServlet {
 
-
-     Connection conn;
-     ResultSet res;
-     Statement stmt;
-     String username,password,query;
-     DatabaseConnection dbconn;
-    
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        try  {
-              PrintWriter out=response.getWriter();
-        
-        username=request.getParameter("username");
-        password=request.getParameter("password");
-        query= "select * from USERS where NAME = '"+username+"'";
-       System.out.println(query);
-        dbconn=new DatabaseConnection();
-        conn=dbconn.setConnection();
-        res=dbconn.getResult(query, conn);
-        out.println(res.getFetchSize());
-        while(res.next())
-        {
+         Mysqldbconnection dbobj=new Mysqldbconnection();
            
-            out.println("bc");
-            out.println(res.next());
-            /*out.print(username);
-            out.print(password);
-        */}
+            String username=request.getParameter("username");
+            String password=request.getParameter("password");
+            int result=dbobj.checkdata(username,password);
         
-           
-        }
-        
-        catch(Exception e)
-        {
-            e.printStackTrace();
+        try (PrintWriter out = response.getWriter()) {
+            
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Login</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            if(result==1)
+            {
+                Cookie loginCookie = new Cookie("username",username);
+			//setting cookie to expiry in 30 mins
+			loginCookie.setMaxAge(30*60);
+			response.addCookie(loginCookie);
+			response.sendRedirect("http://localhost:8080/j2ee/Login_Signup/AfterLogin.jsp");
+                        //out.println("<h1>Successfully Logged in</h1>");
+            
+            }
+            else
+                     out.println("<h1>Incorrect credentials</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
