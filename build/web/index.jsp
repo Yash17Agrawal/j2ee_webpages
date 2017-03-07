@@ -48,11 +48,9 @@
 				<ul class="dropdown-menu">
 					<li ><a href="#">Settings</a></li>
 					<li ><a href="#">View History</a></li>
-<<<<<<< HEAD:web/index.jsp
+
 					<li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp>Login</a></li>	
-=======
-					<li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.html>Login</a></li>	
->>>>>>> 19f499575012493d73d23327adf5cea6074ba659:build/web/index.html
+
                                         <li ><a href=http://localhost:8080/j2ee/Login_Signup/Signup.html>Signup</a></li>
 				</ul>
 			</li>
