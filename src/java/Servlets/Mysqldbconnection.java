@@ -62,7 +62,7 @@ public class Mysqldbconnection {
                             }
     }
 
-    public int insertdata(String username,String password)
+    public int insertdata(String username,String password,String verification_type,String verification_number,String question,String answer)
     {
         try {
             
@@ -74,7 +74,8 @@ public class Mysqldbconnection {
                 Logger.getLogger(Mysqldbconnection.class.getName()).log(Level.SEVERE, null, ex);
             }
             Statement stmt=con.createStatement();
-            String query="insert into "+tablename+" values(\""+username+"\",\""+password+"\");";
+            String query="insert into "+tablename+" values(NULL,\""+username+"\",\""+password+"\",\""+verification_type+"\","+verification_number+",\""+"null\",\""+question+"\",\""+answer+"\""+");";
+            
             System.out.println(query);
             stmt.executeUpdate(query);
                  

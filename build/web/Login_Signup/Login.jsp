@@ -7,9 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-      response.setHeader( "Cache-Control", "private,no-store, no-cache, must-revalidate");  //HTTP 1.1
-    response.setHeader("Pragma","no-cache"); //HTTP 1.0
-    response.setDateHeader ("Expires", 0);
+        response.setHeader( "Cache-Control", "private,no-store, no-cache, must-revalidate");  //HTTP 1.1
+        response.setHeader("Pragma","no-cache"); //HTTP 1.0
+        response.setDateHeader ("Expires", 0);
         String name=(String)session.getAttribute("username");
         if(name != null )
         {

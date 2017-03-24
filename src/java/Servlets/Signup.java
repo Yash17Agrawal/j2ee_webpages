@@ -29,7 +29,11 @@ public class Signup extends HttpServlet {
            
             String username=request.getParameter("username");
             String password=request.getParameter("password");
-            int result=dbobj.insertdata(username,password);
+            String verification_type=request.getParameter("verification_type");
+            String verification_number=request.getParameter("verification_number");
+            String question=request.getParameter("security_question");
+            String answer=request.getParameter("security_answer");
+            int result=dbobj.insertdata(username,password,verification_type,verification_number,question,answer);
             response.setContentType("text/html;charset=UTF-8");
             
             try (PrintWriter out = response.getWriter()) {

@@ -25,20 +25,34 @@
 </head>
 <body >
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
 
 <div class="container-fluid">
 	
 	<!--logo-->
 	<div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
 	<a href="#" class="navbar-brand">My Bank</a>
-	</div>
-
-	<!--nav items-->
-	<div>
+	
+        </div>
+       
+        <!--nav items-->
+         <div>    
+        <ul class="list-inline navbar-nav navbar-right">
+                
+                <li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp>Login</a></li>	
+                <li ><a href=http://localhost:8080/j2ee/Login_Signup/Signup.html>Signup</a></li>
+            
+            </ul>
+        </div>
+	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li ><a href="#">Add Money</a></li>
+			<li ><a href=http://localhost:8080/j2ee/AddMoney/AddMoney.jsp>Add Money</a></li>
 			<li ><a href="#">Pay</a></li>
 			<li ><a href="#">Contact Us</a></li>
 
@@ -49,12 +63,11 @@
 					<li ><a href="#">Settings</a></li>
 					<li ><a href="#">View History</a></li>
 
-					<li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp>Login</a></li>	
-
-                                        <li ><a href=http://localhost:8080/j2ee/Login_Signup/Signup.html>Signup</a></li>
+					
 				</ul>
 			</li>
 		</ul>
+            
 	</div>
 </div>
 

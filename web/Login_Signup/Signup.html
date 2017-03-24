@@ -14,6 +14,15 @@ and open the template in the editor.
         <form action=http://localhost:8080/j2ee/Signup  method="GET">
             Username   <input type="text" name="username"><br>
             Password   <input type="text" name="password"><br>
+            Verification type
+            <select name="verification_type">
+              <option value="adhaarcard">Adhaar Card</option>
+              <option value="pancard">Pan Card</option>
+              
+            </select><br>
+            Verification number<input type="text" name="verification_number"><br>
+            Security Question<input type="text" name="security_question"><br>
+            Security Answer<input type="text" name="security_answer"><br>
             Register      <input type="submit" name="register"><br>
         </form>
     </body>

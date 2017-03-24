@@ -17,6 +17,7 @@
 <body >
 <h3>Hi Awesome <%=(String)session.getAttribute("username") %>, Login successful.</h3>
 <br>
+<input type="button" onclick="location.href='http://localhost:8080/j2ee/OpenAccount/OpenNewAccount.jsp'" value="Create Account"/><br>
 <form action="http://localhost:8080/j2ee/Logout" method="post">
 <input type="submit" value="Logout" >
 </form>

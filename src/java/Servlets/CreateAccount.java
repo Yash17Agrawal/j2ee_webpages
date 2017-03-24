@@ -8,61 +8,37 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author code_eagle
  */
-public class Login extends HttpServlet {
+public class CreateAccount extends HttpServlet {
 
-  
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-         Mysqldbconnection dbobj=new Mysqldbconnection();
-
-           
-            String username=request.getParameter("username");
-            String password=request.getParameter("password");
-            int result=dbobj.checkdata(username,password);
-        
         try (PrintWriter out = response.getWriter()) {
-            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
+            out.println("<title>Servlet CreateAccount</title>");            
             out.println("</head>");
             out.println("<body>");
-            if(result==1)
-            {
-
-                        HttpSession session2 = request.getSession(true);
-                        session2.setAttribute("username", username);
-			response.sendRedirect("http://localhost:8080/j2ee/Login_Signup/AfterLogin.jsp");
-                        
-            
-            }
-            else
-            {
-                // Code for security i.e if any system continuously attempts to log in with incorrect credentials his account gets locked
-                
-                /*
-                HttpSession session = request.getSession(true);
-                session.setAttribute("error", "error");
-		*/	
-                out.println("<h1>Incorrect Credentials</h1>");
-            }
-
+            out.println("<h1>Servlet CreateAccount at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
