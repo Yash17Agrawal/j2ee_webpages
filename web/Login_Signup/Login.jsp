@@ -27,7 +27,7 @@
     <body >
         <form action=http://localhost:8080/j2ee/Login  method="GET">
             Username   <input type="text" name="username"><br>
-            Password   <input type="text" name="password"><br>
+            Password   <input type="password" name="password"><br>
             Login      <input type="submit" name="login"><br>
         </form>
     </body>

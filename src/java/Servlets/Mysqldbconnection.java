@@ -98,6 +98,7 @@ public class Mysqldbconnection {
                 Logger.getLogger(Mysqldbconnection.class.getName()).log(Level.SEVERE, null, ex);
             } 
             Statement stmt=con.createStatement();
+            System.out.println("welcome");
             String query="Select * from "+tablename+" where(name=\""+username+"\" AND password=\""+password+"\");";
             System.out.println(query);
             ResultSet rs=stmt.executeQuery(query);

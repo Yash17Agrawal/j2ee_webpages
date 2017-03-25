@@ -43,8 +43,14 @@
         <!--nav items-->
          <div>    
         <ul class="list-inline navbar-nav navbar-right">
-                
-                <li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp>Login</a></li>	
+                <%String name=(String)session.getAttribute("username");
+                if(name == null )
+        {
+            name="LOGIN";
+        }
+            
+                %>
+                <li ><a href=http://localhost:8080/j2ee/Login_Signup/Login.jsp><%=name%></a></li>	
                 <li ><a href=http://localhost:8080/j2ee/Login_Signup/Signup.html>Signup</a></li>
             
             </ul>

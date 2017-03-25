@@ -5,72 +5,48 @@
  */
 package Servlets;
 
-import Login.Signup.LoginBean;
-import Login.Signup.LoginBeanRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author code_eagle
  */
-public class Login extends HttpServlet {
+public class TestingEjb extends HttpServlet {
 
     @EJB
-    private LoginBeanRemote loginsessionbean;
-  
+    private FirstSample.FirstInterface firstinterface;
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        PrintWriter out = response.getWriter();
-        try {
-            
-            String username=request.getParameter("username");
-            String password=request.getParameter("password");
-            int result  =loginsessionbean.validateLogin(username, password);
-      
-            if(result==1)
-            {
-
-                        HttpSession session2 = request.getSession(true);
-                        session2.setAttribute("username", username);
-			response.sendRedirect("http://localhost:8080/j2ee/Login_Signup/AfterLogin.jsp");
-                       /* RequestDispatcher rd = request.getRequestDispatcher("AfterLogin.jsp");
-                        rd.forward(request,response);*/
-            }
-            else
-            { 
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet Signup</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Incorrect Credentials</h1>");
-                out.println("</body>");
-                 out.println("</html>");
-            }
-    
+        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet TestingEjb</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            //out.println("<a href='http://localhost:8080/j2ee/TestingEjb2'>Click to test error</a>");
+            out.println("<h1>Servlet TestingEjb at " + firstinterface.myFirstMethod() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        catch(Exception e)
-        {
-            
-        }
-        finally
-                {
-                    out.close();
-                }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
