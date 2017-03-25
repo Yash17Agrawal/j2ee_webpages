@@ -58,8 +58,8 @@
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li ><a href=http://localhost:8080/j2ee/AddMoney/AddMoney.jsp>Add Money</a></li>
-			<li ><a href="#">Pay</a></li>
+			<!--<li ><a href=http://localhost:8080/j2ee/AddMoney/AddMoney.jsp>Add Money</a></li>-->
+			<li ><a href="http://localhost:8080/j2ee/AddMoney">Transact</a></li>
 			<li ><a href="#">Contact Us</a></li>
 
 			<!--dripdown menu-->

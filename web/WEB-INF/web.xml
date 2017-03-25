@@ -20,6 +20,14 @@
         <servlet-name>TestingEjb</servlet-name>
         <servlet-class>Servlets.TestingEjb</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OpenAccount</servlet-name>
+        <servlet-class>Servlets.Accounts.OpenAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMoney</servlet-name>
+        <servlet-class>Servlets.AddMoney</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -40,12 +48,20 @@
         <servlet-name>TestingEjb</servlet-name>
         <url-pattern>/TestingEjb</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OpenAccount</servlet-name>
+        <url-pattern>/OpenAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMoney</servlet-name>
+        <url-pattern>/AddMoney</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-   <!-- <error-page>
+    <!-- <error-page>
         <error-code>404</error-code>
         <location>/ErrorPages/ErrorPage.jsp</location>
     </error-page>-->
