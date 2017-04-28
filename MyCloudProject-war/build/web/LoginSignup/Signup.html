@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Signup</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="http://localhost:24807/MyCloudProject-war/LoginSingupNew"  method="GET">
+            Username   <input type="text" name="username"><br>
+            Password   <input type="password" name="password"><br>
+            Verification type
+            <select name="verification_type">
+              <option value="adhaarcard">Adhaar Card</option>
+              <option value="pancard">Pan Card</option>
+              
+            </select><br>
+            Verification number<input type="text" name="verification_number"><br>
+            Security Question<input type="text" name="security_question"><br>
+            Security Answer<input type="text" name="security_answer"><br>
+            Register      <input type="submit" name="register"><br>
+        </form>
+    </body>
+</html>
